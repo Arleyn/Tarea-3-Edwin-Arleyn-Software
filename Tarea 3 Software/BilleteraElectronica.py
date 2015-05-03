@@ -16,6 +16,13 @@ class BilleteraElectronica(object):
     def saldo(self):
         print(self._saldo);
         
+    def recargar(self,cantidad):
+        if cantidad <= 0:
+            raise Exception("La cantidad a recargar tiene que se mayor a 0");
+        else:
+            self._saldo += cantidad;
+            return self._saldo
+        
         
 if __name__ == '__main__':
     pass
