@@ -13,5 +13,9 @@ class BilleteraElectronica(object):
         self._CI = CI;
         self._saldo = 0;
         
+    def saldo(self):
+        print(self._saldo);
+        
+        
 if __name__ == '__main__':
     pass
