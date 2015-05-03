@@ -5,8 +5,15 @@ Created on 3/5/2015
 '''
 
 lista_recargas = [];
+lista_consumos = [];
 
 class DatosCreditos(object):
+    def __init__(self,cantidad,fecha,identificador):
+        self._cantidad = cantidad;
+        self._fecha = fecha;
+        self._identificador = identificador;
+
+class DatosDebitos(object):
     def __init__(self,cantidad,fecha,identificador):
         self._cantidad = cantidad;
         self._fecha = fecha;
