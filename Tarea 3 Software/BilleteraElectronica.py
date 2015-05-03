@@ -21,8 +21,15 @@ class BilleteraElectronica(object):
             raise Exception("La cantidad a recargar tiene que se mayor a 0");
         else:
             self._saldo += cantidad;
-            return self._saldo
+            return self._saldo;
         
+    def consumir(self,cantidad):
+        if self._saldo < cantidad:
+            raise Exception("No tiene saldo suficiente");
+        elif cantidad <= 0:
+            raise Exception("La cantidad a consumir tiene que ser mayor a 0");
+        else:
+            self._saldo -= cantidad;
         
 if __name__ == '__main__':
     pass
