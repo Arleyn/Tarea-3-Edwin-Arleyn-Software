@@ -4,20 +4,19 @@ Created on 3/5/2015
          Edwin Murillo
 '''
 
-lista_recargas = [];
-lista_consumos = [];
-
 class DatosCreditos(object):
-    def __init__(self,cantidad,fecha,identificador):
-        self._cantidad = cantidad;
-        self._fecha = fecha;
-        self._identificador = identificador;
+    def __init__(self):
+        self._lista_recargas = [];
+        
+    def Almacenar(self,cantidad,fecha,identificar):
+        self._listas_recargas.append((cantidad,fecha,identificar))
 
 class DatosDebitos(object):
-    def __init__(self,cantidad,fecha,identificador):
-        self._cantidad = cantidad;
-        self._fecha = fecha;
-        self._identificador = identificador;
+    def __init__(self):
+        self._lista_consumos = [];
+    
+    def Almacenar(self,cantidad,fecha,identificar):
+        self._listas_consumos.append((cantidad,fecha,identificar))
         
 class BilleteraElectronica(object):
     def __init__(self,identificador,nombre,apellido,CI):
