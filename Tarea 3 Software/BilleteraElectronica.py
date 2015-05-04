@@ -9,7 +9,8 @@ class DatosCreditos(object):
         self._lista_recargas = [];
         
     def Almacenar(self,cantidad,fecha,identificar):
-        self._listas_recargas.append((cantidad,fecha,identificar))
+        self._listas_recargas.append((cantidad,fecha,identificar));
+        
 
 class DatosDebitos(object):
     def __init__(self):
@@ -18,6 +19,7 @@ class DatosDebitos(object):
     def Almacenar(self,cantidad,fecha,identificar):
         self._listas_consumos.append((cantidad,fecha,identificar))
         
+        
 class BilleteraElectronica(object):
     def __init__(self,identificador,nombre,apellido,CI):
         self._identificador = identificador;
@@ -25,11 +27,13 @@ class BilleteraElectronica(object):
         self._apellido = apellido;
         self._CI = CI;
         self._saldo = 0;
-        
+        Consumos = DatosDebitos();
+        Creditos = DatosCredito();
+                
     def saldo(self):
         print(self._saldo);
         
-    def recargar(self,cantidad):
+    def recargar(self,cantidad,):
         if cantidad <= 0:
             raise Exception("La cantidad a recargar tiene que se mayor a 0");
         else:
