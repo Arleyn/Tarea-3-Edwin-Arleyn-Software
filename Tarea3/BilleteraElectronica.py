@@ -3,6 +3,7 @@ Created on 3/5/2015
 @author: Arleyn Goncalves
          Edwin Murillo
 '''
+#-*- coding:UTF-8 -*-
 
 class DatosCreditos(object):
     def __init__(self):
@@ -24,8 +25,8 @@ class DatosDebitos(object):
 class BilleteraElectronica(object):
     def __init__(self,identificador,nombre,apellido,CI):
         self._identificador = identificador;
-        self._nombre = nombre;
-        self._apellido = apellido;
+        self._nombre = nombre
+        self._apellido = apellido
         self._CI = CI;
         self._saldo = 0;
         self._Consumos = DatosDebitos();
@@ -46,12 +47,12 @@ class BilleteraElectronica(object):
     def consumir(self,cantidad,fecha,id_estacionamiento):
         if self._saldo < cantidad:
             raise Exception("No tiene saldo suficiente");
-        elif cantidad <= 0:
+        if cantidad <= 0:
             raise Exception("La cantidad a consumir tiene que ser mayor a 0");
         else:
             self._saldo -= cantidad;
             self._Consumos.Almacenar(cantidad,fecha,id_estacionamiento);
             return self._saldo;
-        
+
 if __name__ == '__main__':
     pass
