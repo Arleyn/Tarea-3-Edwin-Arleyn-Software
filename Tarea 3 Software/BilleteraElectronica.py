@@ -6,7 +6,7 @@ Created on 3/5/2015
 
 class DatosCreditos(object):
     def __init__(self):
-        self._lista_recargas = [];
+        self._listas_recargas = [];
         
     def Almacenar(self,cantidad,fecha,identificar):
         self._listas_recargas.append((cantidad,fecha,identificar));
@@ -14,10 +14,11 @@ class DatosCreditos(object):
 
 class DatosDebitos(object):
     def __init__(self):
-        self._lista_consumos = [];
+        self._listas_consumos = [];
     
     def Almacenar(self,cantidad,fecha,identificar):
         self._listas_consumos.append((cantidad,fecha,identificar))
+        return self._listas_consumos
         
         
 class BilleteraElectronica(object):
@@ -27,26 +28,30 @@ class BilleteraElectronica(object):
         self._apellido = apellido;
         self._CI = CI;
         self._saldo = 0;
-        self._Consumo = DatosDebitos();
+        self._Consumos = DatosDebitos();
         self._Creditos = DatosCreditos();
-                
+               
     def saldo(self):
         print(self._saldo);
+        return self._saldo;
         
-    def recargar(self,cantidad,):
+    def recargar(self,cantidad,fecha,id_estacionamiento):
         if cantidad <= 0:
             raise Exception("La cantidad a recargar tiene que se mayor a 0");
         else:
             self._saldo += cantidad;
+            self._Creditos.Almacenar(cantidad,fecha,id_estacionamiento);
             return self._saldo;
         
-    def consumir(self,cantidad):
+    def consumir(self,cantidad,fecha,id_estacionamiento):
         if self._saldo < cantidad:
             raise Exception("No tiene saldo suficiente");
         elif cantidad <= 0:
             raise Exception("La cantidad a consumir tiene que ser mayor a 0");
         else:
             self._saldo -= cantidad;
+            self._Consumos.Almacenar(cantidad,fecha,id_estacionamiento);
+            return self._saldo;
         
 if __name__ == '__main__':
     pass
