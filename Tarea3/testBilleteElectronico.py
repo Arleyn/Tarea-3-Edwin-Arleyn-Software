@@ -40,3 +40,7 @@ class Test(unittest.TestCase):
         saldo1 = Arleyn.consumir(50,'28/12/1992','02')
         saldo2 = Arleyn.consumir(45,'28/12/1992','02')
         self.assertEqual(5,saldo2);
+        
+if __name__ == "__main__":
+    #import sys;sys.argv = ['', 'Test.testName']
+    unittest.main()
